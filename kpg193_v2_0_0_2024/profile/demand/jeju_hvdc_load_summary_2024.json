@@ -1,0 +1,74 @@
+{
+  "year": 2024,
+  "days": 366,
+  "q_ratio": 0.1,
+  "base_rule": "kpx_actual_total_minus_noncentral_excluding_dispatchable_renewables_solar_wind",
+  "base_total_mwh": 564923151.341723,
+  "model_total_mwh": 564923151.341723,
+  "total_rule": "actual_total_minus_noncentral_with_the_jeju_hvdc_flow_relocated_to_the_converter_buses",
+  "jeju_hvdc": {
+    "applied": true,
+    "rule": "subtract_the_hourly_total_flow_from_A_distribute_the_remainder_by_bus_ratio_then_place_each_signed_flow_at_its_converter_bus",
+    "sign_convention": "positive_mainland_to_jeju_is_load_at_the_converter_bus_negative_is_injection_kept_signed",
+    "mainland_buses": {
+      "HVDC1": 143,
+      "HVDC2": 144,
+      "HVDC3": 145
+    },
+    "lines": {
+      "HVDC1": {
+        "bus": 143,
+        "mainland": "해남",
+        "hours": 8784,
+        "hours_with_flow": 8784,
+        "forward_mwh": 631038.2030000024,
+        "reverse_mwh": -20917.674000000017,
+        "reverse_hours": 468,
+        "max_mw": 119.984,
+        "min_mw": -72.42,
+        "first_flow_datetime": "2024-01-01 00:00",
+        "net_mwh": 610120.5290000024
+      },
+      "HVDC2": {
+        "bus": 144,
+        "mainland": "진도",
+        "hours": 8784,
+        "hours_with_flow": 8784,
+        "forward_mwh": 1304965.221000009,
+        "reverse_mwh": -0.10700000000000007,
+        "reverse_hours": 27,
+        "max_mw": 246.855,
+        "min_mw": -0.034,
+        "first_flow_datetime": "2024-01-01 00:00",
+        "net_mwh": 1304965.114000009
+      },
+      "HVDC3": {
+        "bus": 145,
+        "mainland": "완도",
+        "hours": 8784,
+        "hours_with_flow": 1464,
+        "forward_mwh": 25166.516999999978,
+        "reverse_mwh": -2284.1870000000004,
+        "reverse_hours": 129,
+        "max_mw": 69.699,
+        "min_mw": -83.017,
+        "first_flow_datetime": "2024-11-01 00:00",
+        "net_mwh": 22882.329999999976
+      }
+    },
+    "relocated_mwh": 1937967.973,
+    "negative_bus_demand_hours": {},
+    "balance": "sum_over_buses_equals_actual_total_minus_noncentral"
+  },
+  "jeju_demand_reference": {
+    "subtracted": false,
+    "role": "reported_only_the_model_uses_the_interconnector_flow_as_jeju_demand",
+    "source": "kpx_hourly_jeju_generation_side_demand_including_market_solar",
+    "total_mwh": 6460898.132,
+    "hours": 8784,
+    "max_mw": 1178.631,
+    "min_mw": 498.266,
+    "jeju_self_generation_mwh": 4522930.159,
+    "note": "actual_jeju_demand_is_reference_only_the_model_jeju_demand_is_the_relocated_interconnector_flow"
+  }
+}
